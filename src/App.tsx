@@ -3,6 +3,8 @@ import './App.css';
 import {TaskType, Todolist} from './Todolist';
 import {v1} from 'uuid';
 import AddItemForm from "./AddItemForm";
+import {AppBar, Button, Container, Grid, IconButton, Paper, Toolbar, Typography} from "@material-ui/core";
+import {Menu} from "@material-ui/icons";
 
 export type FilterValuesType = "all" | "active" | "completed";
 
@@ -130,7 +132,22 @@ function App() {
 
     return (
         <div className="App">
+            <AppBar position="static">
+                <Toolbar>
+                    <IconButton edge="start"  color="inherit" aria-label="menu">
+                        <Menu />
+                    </IconButton>
+                    <Typography variant="h6" >
+                        News
+                    </Typography>
+                    <Button color="inherit">Login</Button>
+                </Toolbar>
+            </AppBar>
+            <Container fixed>
+                <Grid container style={{padding: "20px"}}>
             <AddItemForm addItem={addTodoList}/>
+                </Grid>
+                <Grid container spacing={6}>
             {todolists.map(tl => {
                 let allTodolistTasks = tasksObj[tl.id];
                 let tasksForTodolist = allTodolistTasks;
@@ -141,7 +158,7 @@ function App() {
                 if (tl.filter === "completed") {
                     tasksForTodolist = allTodolistTasks.filter(t => t.isDone === true);
                 }
-                return <Todolist
+                return <Grid item><Paper elevation={6} style={{padding: "10px"}}><Todolist
                     key={tl.id}
                     id={tl.id}
                     title={tl.title}
@@ -154,9 +171,10 @@ function App() {
                     filter={tl.filter}
                     changeTaskTitle={changeTaskTitle}
                     changeTodoListTitle={changeTodoListTitle}
-                />
+                /></Paper></Grid>
             })}
-
+                </Grid>
+            </Container>
         </div>
     );
 }
