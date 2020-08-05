@@ -50,6 +50,15 @@ function App() {
         })
     }
 
+
+    function changeTodoListTitle(todoListID: string, newTitle: string) {
+        let todoList = todolists.find(tl => tl.id === todoListID);
+        if(todoList){
+            todoList.title = newTitle
+            setTodoLists([...todolists])
+        }
+    }
+
     function addTask(title: string, todoListId: string) {
         let task = {id: v1(), title: title, isDone: false};
         let todoListTasks = tasksObj[todoListId]
@@ -66,12 +75,21 @@ function App() {
         }
     }
 
-    function changeStatus(id: string, isDone: boolean, todoListId: string) {
+    function changeTaskStatus(id: string, isDone: boolean, todoListId: string) {
         let todoListTasks = tasksObj[todoListId]
 
         let task = todoListTasks.find(t => t.id === id);
         if (task) {
             task.isDone = isDone;
+            setTasks({...tasksObj})
+        }
+    }
+    function changeTaskTitle(id: string, newTitle: string, todoListId: string) {
+        let todoListTasks = tasksObj[todoListId]
+
+        let task = todoListTasks.find(t => t.id === id);
+        if (task) {
+            task.title = newTitle;
             setTasks({...tasksObj})
         }
     }
@@ -126,14 +144,16 @@ function App() {
                 return <Todolist
                     key={tl.id}
                     id={tl.id}
-                    title="What to learn"
+                    title={tl.title}
                     tasks={tasksForTodolist}
                     removeTask={removeTask}
                     changeFilter={changeFilter}
                     addTask={addTask}
                     removeTodoList={removeTodoList}
-                    changeTaskStatus={changeStatus}
+                    changeTaskStatus={changeTaskStatus}
                     filter={tl.filter}
+                    changeTaskTitle={changeTaskTitle}
+                    changeTodoListTitle={changeTodoListTitle}
                 />
             })}
 
