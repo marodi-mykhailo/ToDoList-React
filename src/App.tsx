@@ -24,13 +24,14 @@ function App() {
 
     let todoListId1 = v1();
     let todoListId2 = v1();
-
+    // removing Task from todolist
     function removeTask(id: string, todoListId: string) {
         debugger;
         let todoListTasks = tasksObj[todoListId]
         tasksObj[todoListId] = todoListTasks.filter(t => t.id !== id)
         setTasks({...tasksObj});
     }
+    // removing Todolist
     function removeTodoList(todoListId:string) {
         setTodoLists(todolists.filter(t => t.id !== todoListId))
 
@@ -38,7 +39,7 @@ function App() {
 
         setTasks({...tasksObj})
     }
-
+// add Todolist
     function addTodoList(title:string) {
         let newTodoListID = v1()
         let newTodoList: TodoListType = {
@@ -52,7 +53,7 @@ function App() {
         })
     }
 
-
+// change Title for todolist
     function changeTodoListTitle(todoListID: string, newTitle: string) {
         let todoList = todolists.find(tl => tl.id === todoListID);
         if(todoList){
@@ -60,7 +61,7 @@ function App() {
             setTodoLists([...todolists])
         }
     }
-
+// add Task  in todolist
     function addTask(title: string, todoListId: string) {
         let task = {id: v1(), title: title, isDone: false};
         let todoListTasks = tasksObj[todoListId]
@@ -68,7 +69,7 @@ function App() {
         setTasks({...tasksObj});
     }
 
-
+// change filter value
     function changeFilter(value: FilterValuesType, todoListId: string) {
         let todolist = todolists.find(t=>t.id === todoListId);
         if(todolist){
@@ -76,7 +77,7 @@ function App() {
             setTodoLists([...todolists])
         }
     }
-
+// change task status
     function changeTaskStatus(id: string, isDone: boolean, todoListId: string) {
         let todoListTasks = tasksObj[todoListId]
 
@@ -86,6 +87,7 @@ function App() {
             setTasks({...tasksObj})
         }
     }
+    // change task title
     function changeTaskTitle(id: string, newTitle: string, todoListId: string) {
         let todoListTasks = tasksObj[todoListId]
 
@@ -97,7 +99,7 @@ function App() {
     }
 
 
-
+// set state for todolist
     let [todolists, setTodoLists] = useState<Array<TodoListType>>(
         [
             {
@@ -113,6 +115,7 @@ function App() {
         ]
     )
 
+    // set state for tasks
     let [tasksObj, setTasks] = useState<TasksStateType>({
         [todoListId1]: [
             {id: v1(), title: "HTML&CSS", isDone: true},
