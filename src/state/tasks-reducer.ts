@@ -92,8 +92,3 @@ export const changeTaskStatusAC = (taskId: string, isDone: boolean, todolistId: 
 export const changeTaskTitleAC = (taskId: string, title: string, todolistId: string): changeTaskTitleActionType => {
     return {type: 'CHANGE-TASK-TITLE', taskId, title, todolistId}
 }
-
-
-let newArray = (task: Array<TaskType>, taskId: string, property: string | boolean) => {
-
-}
