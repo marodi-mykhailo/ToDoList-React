@@ -4,6 +4,9 @@ import AddItemForm from "./AddItemForm";
 import EditableSpan from "./EditableSpan";
 import {Button, Checkbox, IconButton} from "@material-ui/core";
 import {Delete} from "@material-ui/icons";
+import {useSelector} from "react-redux";
+import {AppRootStateType} from "./state/store";
+import {TodoListType} from "./AppWithRedux";
 
 export type TaskType = {
     id: string
