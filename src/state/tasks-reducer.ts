@@ -54,6 +54,7 @@ export const tasksReducer = (state: TasksStateType = initialState, action: Actio
                 })
             }
         case 'CHANGE-TASK-TITLE':
+            debugger
             return {
                 ...state, [action.todolistId]: state[action.todolistId].map(task => {
                     if (task.id !== action.taskId) {

@@ -6,29 +6,33 @@ type EditableSpanPropsType = {
     saveNewTitle: (newTitle: string) => void
 }
 
-function EditableSpan(props: EditableSpanPropsType) {
-    let [editMode, setEditMode] = useState<boolean>(false)
-    let [title, setTitle] = useState(props.title)
-    const activateEditMode = () =>{
-        setEditMode(true)
-        setTitle(props.title)
-    }
-    const disableEditMode = () =>{
-        setEditMode(false)
-        props.saveNewTitle(title)
-    }
-    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) =>{
-        setTitle(e.currentTarget.value)
-    }
-    const onAddItemKeyPressed = (e: KeyboardEvent<HTMLInputElement>) => {
-        if (e.charCode === 13) {
-            disableEditMode()
+export const EditableSpan = React.memo((props: EditableSpanPropsType) => {
+        console.log("EditableSpan called")
+        let [editMode, setEditMode] = useState<boolean>(false)
+        let [title, setTitle] = useState(props.title)
+        const activateEditMode = () => {
+            setEditMode(true)
+            setTitle(props.title)
         }
+        const disableEditMode = () => {
+            setEditMode(false)
+            props.saveNewTitle(title)
+        }
+        const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+            setTitle(e.currentTarget.value)
+        }
+        const onAddItemKeyPressed = (e: KeyboardEvent<HTMLInputElement>) => {
+            if (e.charCode === 13) {
+                disableEditMode()
+            }
+        }
+        return (
+            editMode ?
+                <TextField label={props.title} value={title} autoFocus onBlur={disableEditMode} onChange={onChangeHandler}
+                           onKeyPress={onAddItemKeyPressed}/> :
+                <span onDoubleClick={activateEditMode}> {props.title} </span>
+
+        )
     }
-return(
-    editMode ? <TextField label={props.title} value={title} autoFocus onBlur={disableEditMode} onChange={onChangeHandler} onKeyPress={onAddItemKeyPressed}/> : <span onDoubleClick={activateEditMode} > {props.title} </span>
-
 )
-}
 
-export default EditableSpan;
