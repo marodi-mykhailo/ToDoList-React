@@ -2643,6 +2643,27 @@
     regenerator-runtime "^0.13.3"
     ts-dedent "^1.1.1"
 
+"@storybook/addon-storysource@^6.0.26":
+  version "6.0.26"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-storysource/-/addon-storysource-6.0.26.tgz#ee099f271846b45a5a4e9ac7f4264604e65d8062"
+  integrity sha512-E+RBPdkKEhfVrWaewWgM2DQnREcOCdavOsrm1ayV06tPmmZZoDQErhBE7OjXVT0AUhATEelZreIxrj7lVewjkg==
+  dependencies:
+    "@storybook/addons" "6.0.26"
+    "@storybook/api" "6.0.26"
+    "@storybook/client-logger" "6.0.26"
+    "@storybook/components" "6.0.26"
+    "@storybook/router" "6.0.26"
+    "@storybook/source-loader" "6.0.26"
+    "@storybook/theming" "6.0.26"
+    core-js "^3.0.1"
+    estraverse "^4.2.0"
+    loader-utils "^2.0.0"
+    prettier "~2.0.5"
+    prop-types "^15.7.2"
+    react "^16.9.17"
+    react-syntax-highlighter "^12.2.1"
+    regenerator-runtime "^0.13.3"
+
 "@storybook/addon-toolbars@6.0.26":
   version "6.0.26"
   resolved "https://registry.yarnpkg.com/@storybook/addon-toolbars/-/addon-toolbars-6.0.26.tgz#650a1793caac6616f4481116f4dfb79f2d3c336b"
@@ -12937,7 +12958,7 @@ react-transition-group@^4.4.0:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
-react@^16.13.1, react@^16.8.3:
+react@^16.13.1, react@^16.8.3, react@^16.9.17:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"
   integrity sha512-YMZQQq32xHLX0bz5Mnibv1/LHb3Sqzngu7xstSM+vrkE5Kzr9xE0yMByK5kMoTK30YVJE61WfbxIFFvfeDKT1w==
