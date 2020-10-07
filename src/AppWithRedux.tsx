@@ -9,7 +9,6 @@ import {
     ChangeTodolisFiltertAC,
     ChangeTodolistTitleAC,
     RemoveTodolistAC,
-    todolistsReducer
 } from "./state/todolists-reducer";
 import {addTaskAC, changeTaskStatusAC, changeTaskTitleAC, removeTaskAC, tasksReducer} from "./state/tasks-reducer";
 import {useDispatch, useSelector} from "react-redux";
