@@ -63,7 +63,7 @@ export const Todolist = React.memo((props: PropsType) => {
         },[props.id, props.changeTaskStatus])
         const changeTaskTitle = useCallback((taskId: string, newTitle: string) => {
             props.changeTaskTitle(taskId, newTitle, props.id)
-        },[props.id, props.changeTaskTitle])
+        },[props.id, props.changeTaskTitle]) 
 
         return <div>
             <h3><EditableSpan title={props.title} saveNewTitle={changeTodoListTitle}/>
