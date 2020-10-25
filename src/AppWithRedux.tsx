@@ -6,10 +6,10 @@ import {AddItemForm} from './AddItemForm';
 import {AppBar, Button, Container, Grid, IconButton, Paper, Toolbar, Typography} from '@material-ui/core';
 import {Menu} from '@material-ui/icons';
 import {
-    addTodolistAC,
+    addTodolistAC, addTodolistTC,
     changeTodolistFilterAC,
-    changeTodolistTitleAC, fetchTodolistsTC, FilterValuesType,
-    removeTodolistAC, setTodolistsAC, TodolistDomainType,
+    changeTodolistTitleAC, deleteTodolistTC, fetchTodolistsTC, FilterValuesType,
+    removeTodolistAC, setTodolistsAC, TodolistDomainType, updateTodolistTitleTC,
 } from './state/todolists-reducer'
 import {
     addTaskAC, addTaskTC,
@@ -17,7 +17,7 @@ import {
     changeTaskTitleAC,
     fetchTasksTC,
     removeTaskAC, removeTaskTC,
-    tasksReducer, updateTaskStatusTC
+    tasksReducer, updateTaskStatusTC, updateTaskTitleTC
 } from './state/tasks-reducer';
 import {useDispatch, useSelector} from 'react-redux';
 import {AppRootStateType} from './state/store';
@@ -57,7 +57,7 @@ function AppWithRedux() {
     }, []);
 
     const changeTaskTitle = useCallback(function (id: string, newTitle: string, todolistId: string) {
-        const action = changeTaskTitleAC(id, newTitle, todolistId);
+        const action = updateTaskTitleTC(todolistId,id,newTitle);
         dispatch(action);
     }, []);
 
@@ -67,17 +67,17 @@ function AppWithRedux() {
     }, []);
 
     const removeTodolist = useCallback(function (id: string) {
-        const action = removeTodolistAC(id);
+        const action = deleteTodolistTC(id);
         dispatch(action);
     }, []);
 
     const changeTodolistTitle = useCallback(function (id: string, title: string) {
-        const action = changeTodolistTitleAC(id, title);
+        const action = updateTodolistTitleTC(id, title);
         dispatch(action);
     }, []);
 
     const addTodolist = useCallback((title: string) => {
-        const action = addTodolistAC(title);
+        const action = addTodolistTC(title);
         dispatch(action);
     }, [dispatch]);
 

@@ -137,10 +137,10 @@ export const fetchTasksTC = (todolistId: string) => {
     }
 }
 
-export const addTaskTC = (todolistId:string, title:string)=>{
+export const addTaskTC = (todolistId: string, title: string) => {
     return (dispatch: Dispatch) => {
         todolistsAPI.createTask(todolistId, title)
-            .then((res)=>{
+            .then((res) => {
                 dispatch(addTaskAC(res.data.data.item))
             })
     }
@@ -149,17 +149,15 @@ export const addTaskTC = (todolistId:string, title:string)=>{
 export const removeTaskTC = (todolistId: string, taskId: string) => {
     return (dispatch: Dispatch) => {
         todolistsAPI.deleteTask(todolistId, taskId)
-            .then((res)=>{
-                dispatch(removeTaskAC(taskId,todolistId))
+            .then((res) => {
+                dispatch(removeTaskAC(taskId, todolistId))
             })
     }
 }
 
 export const updateTaskStatusTC = (taskId: string, todolistId: string, status: TaskStatuses) => {
     return (dispatch: Dispatch, getState: () => AppRootStateType) => {
-
         const task = getState().tasks[todolistId].find(t => t.id === taskId)
-
         if (task) {
             todolistsAPI.updateTask(todolistId, taskId, {
                 title: task.title,
@@ -176,3 +174,25 @@ export const updateTaskStatusTC = (taskId: string, todolistId: string, status: T
     }
 }
 
+
+export const updateTaskTitleTC = (todolistId: string, taskId: string, title: string) => {
+    return (dispatch: Dispatch, getState: () => AppRootStateType) => {
+        const task = getState().tasks[todolistId].find(task => task.id === taskId)
+        if (task) {
+            todolistsAPI.updateTask(todolistId, taskId, {
+                title: title,
+                startDate: task.startDate,
+                priority: task.priority,
+                description: task.description,
+                deadline: task.deadline,
+                status: task.status
+            })
+                .then((res) => {
+                    if(res.data.resultCode === 0){
+                        dispatch(changeTaskTitleAC(taskId, title, todolistId))
+                    }
+                })
+        }
+
+    }
+}
