@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useReducer, useState} from 'react'
+import React, {useCallback, useEffect} from 'react'
 import './App.css';
 import {Todolist} from './Todolist';
 import {v1} from 'uuid';
@@ -6,22 +6,18 @@ import {AddItemForm} from './AddItemForm';
 import {AppBar, Button, Container, Grid, IconButton, Paper, Toolbar, Typography} from '@material-ui/core';
 import {Menu} from '@material-ui/icons';
 import {
-    addTodolistAC, addTodolistTC,
+    addTodolistTC,
     changeTodolistFilterAC,
-    changeTodolistTitleAC, deleteTodolistTC, fetchTodolistsTC, FilterValuesType,
-    removeTodolistAC, setTodolistsAC, TodolistDomainType, updateTodolistTitleTC,
+    deleteTodolistTC,
+    fetchTodolistsTC,
+    FilterValuesType,
+    TodolistDomainType,
+    updateTodolistTitleTC,
 } from './state/todolists-reducer'
-import {
-    addTaskAC, addTaskTC,
-    changeTaskStatusAC,
-    changeTaskTitleAC,
-    fetchTasksTC,
-    removeTaskAC, removeTaskTC,
-    tasksReducer, updateTaskStatusTC, updateTaskTitleTC
-} from './state/tasks-reducer';
+import {addTaskTC, removeTaskTC, updateTaskTC} from './state/tasks-reducer';
 import {useDispatch, useSelector} from 'react-redux';
 import {AppRootStateType} from './state/store';
-import {TaskStatuses, TaskType, todolistsAPI} from './api/todolists-api'
+import {TaskStatuses, TaskType} from './api/todolists-api'
 
 
 export type TasksStateType = {
@@ -52,12 +48,12 @@ function AppWithRedux() {
     }, []);
 
     const changeStatus = useCallback(function (id: string, status: TaskStatuses, todolistId: string) {
-        const action = updateTaskStatusTC(id,  todolistId, status);
+        const action = updateTaskTC(todolistId, id, {status});
         dispatch(action);
     }, []);
 
     const changeTaskTitle = useCallback(function (id: string, newTitle: string, todolistId: string) {
-        const action = updateTaskTitleTC(todolistId,id,newTitle);
+        const action = updateTaskTC(todolistId, id, {title: newTitle});
         dispatch(action);
     }, []);
 
