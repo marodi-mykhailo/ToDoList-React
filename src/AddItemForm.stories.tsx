@@ -9,6 +9,7 @@ export default {
 
 export const AddItemFormBaseExample = (props: any) => {
     return (<AddItemForm
-        addItem={action('Button inside form clicked')}
+        addItem={action('Button inside form clicked') }
+        entityStatus={"succeeded"}
     />)
 }

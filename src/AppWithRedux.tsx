@@ -3,7 +3,17 @@ import './App.css';
 import {Todolist} from './Todolist';
 import {v1} from 'uuid';
 import {AddItemForm} from './AddItemForm';
-import {AppBar, Button, Container, Grid, IconButton, Paper, Toolbar, Typography} from '@material-ui/core';
+import {
+    AppBar,
+    Button,
+    Container,
+    Grid,
+    IconButton,
+    LinearProgress,
+    Paper,
+    Toolbar,
+    Typography
+} from '@material-ui/core';
 import {Menu} from '@material-ui/icons';
 import {
     addTodolistTC,
@@ -18,6 +28,8 @@ import {addTaskTC, removeTaskTC, updateTaskTC} from './state/tasks-reducer';
 import {useDispatch, useSelector} from 'react-redux';
 import {AppRootStateType} from './state/store';
 import {TaskStatuses, TaskType} from './api/todolists-api'
+import {ErrorSnackbar} from "./ErrorSnackbar";
+import {RequestStatusType} from "./state/app-reducer";
 
 
 export type TasksStateType = {
@@ -31,6 +43,7 @@ function AppWithRedux() {
         dispatch(fetchTodolistsTC())
     }, [])
 
+    const status = useSelector<AppRootStateType, RequestStatusType>(state => state.app.status)
 
     let todolistId1 = v1();
     let todolistId2 = v1();
@@ -79,6 +92,7 @@ function AppWithRedux() {
 
     return (
         <div className="App">
+            <ErrorSnackbar/>
             <AppBar position="static">
                 <Toolbar>
                     <IconButton edge="start" color="inherit" aria-label="menu">
@@ -89,10 +103,11 @@ function AppWithRedux() {
                     </Typography>
                     <Button color="inherit">Login</Button>
                 </Toolbar>
+                { status === 'loading' && <LinearProgress color="secondary"/> }
             </AppBar>
             <Container fixed>
                 <Grid container style={{padding: "20px"}}>
-                    <AddItemForm addItem={addTodolist}/>
+                    <AddItemForm addItem={addTodolist} entityStatus={'idle'}/>
                 </Grid>
                 <Grid container spacing={3}>
                     {
@@ -108,6 +123,7 @@ function AppWithRedux() {
                                         removeTask={removeTask}
                                         changeFilter={changeFilter}
                                         addTask={addTask}
+                                        entityStatus={tl.entityStatus}
                                         changeTaskStatus={changeStatus}
                                         filter={tl.filter}
                                         removeTodolist={removeTodolist}
