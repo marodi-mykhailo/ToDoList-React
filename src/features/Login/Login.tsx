@@ -73,7 +73,6 @@ export const Login = () => {
                             label="Password"
                             margin="normal"
                             {...formik.getFieldProps('password')}
-
                         />
                         {formik.errors.password ? <div style={{color: 'red'}}>{formik.errors.password}</div> : null}
                         <FormControlLabel
