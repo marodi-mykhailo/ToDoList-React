@@ -28,6 +28,7 @@ type PropsType = {
 
 const img = 'https://techcrunch.com/wp-content/uploads/2011/11/any-do-logo-name.png?w=730&crop=1'
 
+
 function App({demo = false}: PropsType) {
     const status = useSelector<AppRootStateType, RequestStatusType>((state) => state.app.status)
     const isInitialized = useSelector<AppRootStateType, boolean>(state => state.app.isInitialized)
@@ -64,7 +65,8 @@ function App({demo = false}: PropsType) {
                 </Toolbar>
                 {status === 'loading' && <LinearProgress/>}
             </AppBar>
-            <Container fixed>
+            <Container className={'container'} fixed>
+                <img className={'logo'} src={img} alt={''}/>
                 <Switch>
                     <Route  path={'/startPage'} render={() => <StartPage/>}/>
                     <Route exact path={'/'} render={() => <TodolistsList demo={demo}/>}/>

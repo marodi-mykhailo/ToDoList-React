@@ -25,6 +25,12 @@
 }
 */
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;1,400&display=swap');
+
+.App{
+    font-family: 'Montserrat', sans-serif;
+}
+
 .img{
     max-width: 100%;
     width: 100px;
@@ -41,4 +47,11 @@
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+}
+
+
+.logo{
+    width: 150px;
+    position: absolute;
+    left: 17%;
 }
