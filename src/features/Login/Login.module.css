@@ -1,0 +1,23 @@
+.wrapp {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10vh;
+}
+
+.left {
+    width: 45%;
+}
+
+.img {
+    width: 100%;
+}
+
+.right {
+    width: 45%;
+}
+
+.formWrapp{
+    display: flex;
+    justify-content: center;
+}

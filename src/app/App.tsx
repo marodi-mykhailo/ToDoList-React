@@ -10,19 +10,23 @@ import {
     Toolbar,
     Typography
 } from '@material-ui/core'
-import {Menu} from '@material-ui/icons'
 import {TodolistsList} from '../features/TodolistsList/TodolistsList'
 import {ErrorSnackbar} from '../components/ErrorSnackbar/ErrorSnackbar'
 import {useDispatch, useSelector} from 'react-redux'
 import {AppRootStateType} from './store'
 import {initializeAppTC, RequestStatusType} from './app-reducer'
 import {Login} from "../features/Login/Login";
-import {Route, Switch, Redirect} from 'react-router-dom'
+import {Route, Switch, Redirect, NavLink} from 'react-router-dom';
 import {logOutTC} from "../features/Login/authReduer";
+import logo from '../assets/image/logo.png'
+import StartPage from "../features/StartPage/StartPage";
 
 type PropsType = {
     demo?: boolean
 }
+
+
+const img = 'https://techcrunch.com/wp-content/uploads/2011/11/any-do-logo-name.png?w=730&crop=1'
 
 function App({demo = false}: PropsType) {
     const status = useSelector<AppRootStateType, RequestStatusType>((state) => state.app.status)
@@ -31,13 +35,16 @@ function App({demo = false}: PropsType) {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        debugger
         dispatch(initializeAppTC())
     }, [])
 
     const logOutHandler = useCallback(() => {
         dispatch(logOutTC())
     }, [])
+
+    const logInHandler = () => {
+        return <Redirect to={'/login'}/>
+    }
 
     if (!isInitialized) {
         return <div
@@ -50,19 +57,16 @@ function App({demo = false}: PropsType) {
         <div className="App">
             <ErrorSnackbar/>
             <AppBar position="static">
-                <Toolbar>
-                    <IconButton edge="start" color="inherit" aria-label="menu">
-                        <Menu/>
-                    </IconButton>
-                    <Typography variant="h6">
-                        News
-                    </Typography>
+                <Toolbar className={'wrapp'}>
+                    <img className={'img'} src={logo} alt={''} />
                     {isLoggedIn && <Button color="inherit" onClick={logOutHandler}>Log out</Button>}
+                    {isLoggedIn || <Button color="inherit"><NavLink className={'link'} to={'/login'}>Log In</NavLink></Button>}
                 </Toolbar>
                 {status === 'loading' && <LinearProgress/>}
             </AppBar>
             <Container fixed>
                 <Switch>
+                    <Route  path={'/startPage'} render={() => <StartPage/>}/>
                     <Route exact path={'/'} render={() => <TodolistsList demo={demo}/>}/>
                     <Route path={'/login'} render={() => <Login/>}/>
                     <Route path={'/404'} render={() => <h1>404 Page not found</h1>}/>
