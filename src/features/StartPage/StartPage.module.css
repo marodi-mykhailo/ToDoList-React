@@ -48,6 +48,17 @@
     text-decoration: none;
 }
 
-.link:focus{
+.link:focus {
     outline: none;
+}
+
+@media only screen and (max-width: 1450px) {
+    .img {
+        width: 80%;
+        top: 75px;
+        left: 235px;
+        position: absolute;
+        z-index: -1;
+    }
+
 }
