@@ -5,6 +5,10 @@ import todo from '../../assets/image/todo.png'
 import {NavLink, Redirect} from "react-router-dom";
 import {useSelector} from "react-redux";
 import {AppRootStateType} from "../../app/store";
+import {Container} from "@material-ui/core";
+
+const img = 'https://techcrunch.com/wp-content/uploads/2011/11/any-do-logo-name.png?w=730&crop=1'
+
 
 const StartPage = () => {
     const isLoggedIn = useSelector<AppRootStateType, boolean>(state => state.auth.isLoggedIn)
@@ -14,6 +18,7 @@ const StartPage = () => {
     }
     return (
         <section className={s.section}>
+            <img className={s.logo} src={img} alt={''}/>
             <h1 className={s.h1}>Organize it all with <span>Any.do</span></h1>
             <img className={s.img} src={todo} alt={''}/>
 

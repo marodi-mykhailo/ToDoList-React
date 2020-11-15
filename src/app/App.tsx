@@ -26,7 +26,6 @@ type PropsType = {
 }
 
 
-const img = 'https://techcrunch.com/wp-content/uploads/2011/11/any-do-logo-name.png?w=730&crop=1'
 
 
 function App({demo = false}: PropsType) {
@@ -66,7 +65,6 @@ function App({demo = false}: PropsType) {
                 {status === 'loading' && <LinearProgress/>}
             </AppBar>
             <Container className={'container'} fixed>
-                <img className={'logo'} src={img} alt={''}/>
                 <Switch>
                     <Route  path={'/startPage'} render={() => <StartPage/>}/>
                     <Route exact path={'/'} render={() => <TodolistsList demo={demo}/>}/>

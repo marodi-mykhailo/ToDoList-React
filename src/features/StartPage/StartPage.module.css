@@ -62,3 +62,14 @@
     }
 
 }
+.logo{
+    width: 150px;
+    position: absolute;
+    left: 17%;
+}
+
+@media only screen and (max-width: 1450px){
+    .logo{
+        left: 4%;
+    }
+}
