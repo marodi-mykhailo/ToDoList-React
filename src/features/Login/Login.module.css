@@ -17,7 +17,24 @@
     width: 45%;
 }
 
-.formWrapp{
+.formWrapp {
     display: flex;
     justify-content: center;
 }
+
+@media screen and (max-width: 610px) {
+    .wrapp {
+        flex-direction: column;
+    }
+
+    .left {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .right {
+        width: auto
+    }
+}
+
+

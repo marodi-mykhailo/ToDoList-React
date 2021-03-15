@@ -1,10 +1,21 @@
-.wrapp{
+.wrapp {
     width: 80%;
 }
 
-.img{
+.img {
     position: fixed;
     width: 30%;
     right: 20px;
     top: 85px;
+    z-index: -1;
+}
+
+@media only screen and (max-width: 992px) {
+    .img {
+        display: none;
+    }
+
+    .wrapp {
+        width: auto;
+    }
 }
