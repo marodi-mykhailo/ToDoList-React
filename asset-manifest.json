@@ -1,26 +1,25 @@
 {
   "files": {
-    "main.css": "/ToDoList-React/static/css/main.9ed23394.chunk.css",
-    "main.js": "/ToDoList-React/static/js/main.b9eb4418.chunk.js",
-    "main.js.map": "/ToDoList-React/static/js/main.b9eb4418.chunk.js.map",
+    "main.css": "/ToDoList-React/static/css/main.d90fe00c.chunk.css",
+    "main.js": "/ToDoList-React/static/js/main.53d4e973.chunk.js",
+    "main.js.map": "/ToDoList-React/static/js/main.53d4e973.chunk.js.map",
     "runtime-main.js": "/ToDoList-React/static/js/runtime-main.5bd76bdf.js",
     "runtime-main.js.map": "/ToDoList-React/static/js/runtime-main.5bd76bdf.js.map",
-    "static/js/2.62fdb9b0.chunk.js": "/ToDoList-React/static/js/2.62fdb9b0.chunk.js",
-    "static/js/2.62fdb9b0.chunk.js.map": "/ToDoList-React/static/js/2.62fdb9b0.chunk.js.map",
+    "static/js/2.2f243517.chunk.js": "/ToDoList-React/static/js/2.2f243517.chunk.js",
+    "static/js/2.2f243517.chunk.js.map": "/ToDoList-React/static/js/2.2f243517.chunk.js.map",
     "index.html": "/ToDoList-React/index.html",
-    "precache-manifest.71228cbdcdef362d24053fb79ead2ac9.js": "/ToDoList-React/precache-manifest.71228cbdcdef362d24053fb79ead2ac9.js",
+    "precache-manifest.cf9ce4481be26150a15ce094da77811a.js": "/ToDoList-React/precache-manifest.cf9ce4481be26150a15ce094da77811a.js",
     "service-worker.js": "/ToDoList-React/service-worker.js",
-    "static/css/main.9ed23394.chunk.css.map": "/ToDoList-React/static/css/main.9ed23394.chunk.css.map",
-    "static/js/2.62fdb9b0.chunk.js.LICENSE.txt": "/ToDoList-React/static/js/2.62fdb9b0.chunk.js.LICENSE.txt",
+    "static/css/main.d90fe00c.chunk.css.map": "/ToDoList-React/static/css/main.d90fe00c.chunk.css.map",
+    "static/js/2.2f243517.chunk.js.LICENSE.txt": "/ToDoList-React/static/js/2.2f243517.chunk.js.LICENSE.txt",
     "static/media/logo.png": "/ToDoList-React/static/media/logo.7a3f22b8.png",
     "static/media/tdl.png": "/ToDoList-React/static/media/tdl.a16cb5ed.png",
-    "static/media/todo.png": "/ToDoList-React/static/media/todo.e9278ccc.png",
-    "static/media/welcome.svg": "/ToDoList-React/static/media/welcome.2409ca6b.svg"
+    "static/media/todo.png": "/ToDoList-React/static/media/todo.e9278ccc.png"
   },
   "entrypoints": [
     "static/js/runtime-main.5bd76bdf.js",
-    "static/js/2.62fdb9b0.chunk.js",
-    "static/css/main.9ed23394.chunk.css",
-    "static/js/main.b9eb4418.chunk.js"
+    "static/js/2.2f243517.chunk.js",
+    "static/css/main.d90fe00c.chunk.css",
+    "static/js/main.53d4e973.chunk.js"
   ]
 }
