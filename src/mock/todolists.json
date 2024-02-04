@@ -1,0 +1,175 @@
+{
+    "todolists":
+    [
+        {
+            "id": "1",
+            "title": "Personal",
+            "addedDate": "2024-02-04",
+            "order": 1,
+            "filter": "all",
+            "tasks":
+            [
+                {
+                    "title": "Grocery shopping",
+                    "status": 0,
+                    "id": "t1",
+                    "todoListId": "1",
+                    "order": 1,
+                    "addedDate": "2024-02-04"
+                },
+                {
+                    "title": "Reading",
+                    "status": 1,
+                    "id": "t2",
+                    "todoListId": "1",
+                    "order": 2,
+                    "addedDate": "2024-02-04"
+                },
+                {
+                    "title": "Home Office Organization",
+                    "status": 0,
+                    "id": "t3",
+                    "todoListId": "1",
+                    "order": 3,
+                    "addedDate": "2024-02-04"
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "title": "List 2",
+            "addedDate": "2024-02-04",
+            "order": 2,
+            "filter": "active",
+            "tasks":
+            [
+                {
+                    "title": "Task 1",
+                    "status": 1,
+                    "id": "t21",
+                    "todoListId": "2",
+                    "order": 1,
+                    "addedDate": "2024-02-04"
+                },
+                {
+                    "title": "Task 2",
+                    "status": 0,
+                    "id": "t22",
+                    "todoListId": "2",
+                    "order": 2,
+                    "addedDate": "2024-02-04"
+                },
+                {
+                    "title": "Task 3",
+                    "status": 0,
+                    "id": "t23",
+                    "todoListId": "2",
+                    "order": 3,
+                    "addedDate": "2024-02-04"
+                }
+            ]
+        },
+        {
+            "id": "3",
+            "title": "List 3",
+            "addedDate": "2024-02-04",
+            "order": 3,
+            "filter": "completed",
+            "tasks":
+            [
+                {
+                    "title": "Task 1",
+                    "status": 1,
+                    "id": "t31",
+                    "todoListId": "3",
+                    "order": 1,
+                    "addedDate": "2024-02-04"
+                },
+                {
+                    "title": "Task 2",
+                    "status": 0,
+                    "id": "t32",
+                    "todoListId": "3",
+                    "order": 2,
+                    "addedDate": "2024-02-04"
+                },
+                {
+                    "title": "Task 3",
+                    "status": 0,
+                    "id": "t33",
+                    "todoListId": "3",
+                    "order": 3,
+                    "addedDate": "2024-02-04"
+                }
+            ]
+        },
+        {
+            "id": "4",
+            "title": "List 4",
+            "addedDate": "2024-02-04",
+            "order": 4,
+            "filter": "active",
+            "tasks":
+            [
+                {
+                    "title": "Task 1",
+                    "status": 0,
+                    "id": "t41",
+                    "todoListId": "4",
+                    "order": 1,
+                    "addedDate": "2024-02-04"
+                },
+                {
+                    "title": "Task 2",
+                    "status": 0,
+                    "id": "t42",
+                    "todoListId": "4",
+                    "order": 2,
+                    "addedDate": "2024-02-04"
+                },
+                {
+                    "title": "Task 3",
+                    "status": 0,
+                    "id": "t43",
+                    "todoListId": "4",
+                    "order": 3,
+                    "addedDate": "2024-02-04"
+                }
+            ]
+        },
+        {
+            "id": "5",
+            "title": "List 5",
+            "addedDate": "2024-02-04",
+            "order": 5,
+            "filter": "completed",
+            "tasks":
+            [
+                {
+                    "title": "Task 1",
+                    "status": 0,
+                    "id": "t51",
+                    "todoListId": "5",
+                    "order": 1,
+                    "addedDate": "2024-02-04"
+                },
+                {
+                    "title": "Task 2",
+                    "status": 0,
+                    "id": "t52",
+                    "todoListId": "5",
+                    "order": 2,
+                    "addedDate": "2024-02-04"
+                },
+                {
+                    "title": "Task 3",
+                    "status": 1,
+                    "id": "t53",
+                    "todoListId": "5",
+                    "order": 3,
+                    "addedDate": "2024-02-04"
+                }
+            ]
+        }
+    ]
+}

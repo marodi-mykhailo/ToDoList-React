@@ -1,45 +1,34 @@
-import React, {useCallback, useEffect} from 'react'
+import React, {useCallback} from 'react'
 import s from './TodoList.module.css';
 import {useDispatch, useSelector} from 'react-redux'
 import {AppRootStateType} from '../../app/store'
 import {
     addTodolistTC,
     changeTodolistFilterAC,
-    changeTodolistTitleTC,
-    fetchTodolistsTC,
+    changeTodolistTitleAC,
     FilterValuesType,
-    removeTodolistTC,
+    removeTodolistAC,
     TodolistDomainType
 } from './todolists-reducer'
-import {addTaskTC, removeTaskTC, TasksStateType, updateTaskTC} from './tasks-reducer'
+import {addTaskTC, removeTaskAC, TasksStateType, updateTaskTC} from './tasks-reducer'
 import {TaskStatuses} from '../../api/todolists-api'
 import {Grid, Paper} from '@material-ui/core'
 import {AddItemForm} from '../../components/AddItemForm/AddItemForm'
 import {Todolist} from './Todolist/Todolist'
-import {Redirect} from 'react-router-dom'
 import img from '../../assets/image/tdl.png'
+import {Redirect} from "react-router-dom";
 
 type PropsType = {
     demo?: boolean
 }
 
 export const TodolistsList: React.FC<PropsType> = ({demo = false}) => {
-    const todolists = useSelector<AppRootStateType, Array<TodolistDomainType>>(state => state.todolists)
+    const todolists = useSelector<AppRootStateType, Array<TodolistDomainType> | null>(state => state.todolists)
     const tasks = useSelector<AppRootStateType, TasksStateType>(state => state.tasks)
-    const isLoggedIn = useSelector<AppRootStateType, boolean>(state => state.auth.isLoggedIn)
     const dispatch = useDispatch()
 
-    useEffect(() => {
-        if (demo || !isLoggedIn) {
-            return;
-        }
-        const thunk = fetchTodolistsTC()
-        dispatch(thunk)
-    }, [demo, isLoggedIn, dispatch])
-
     const removeTask = useCallback(function (id: string, todolistId: string) {
-        const thunk = removeTaskTC(id, todolistId)
-        dispatch(thunk)
+        dispatch(removeTaskAC(id, todolistId))
     }, [dispatch])
 
     const addTask = useCallback(function (title: string, todolistId: string) {
@@ -63,13 +52,11 @@ export const TodolistsList: React.FC<PropsType> = ({demo = false}) => {
     }, [dispatch])
 
     const removeTodolist = useCallback(function (id: string) {
-        const thunk = removeTodolistTC(id)
-        dispatch(thunk)
+        dispatch(removeTodolistAC(id))
     }, [dispatch])
 
     const changeTodolistTitle = useCallback(function (id: string, title: string) {
-        const thunk = changeTodolistTitleTC(id, title)
-        dispatch(thunk)
+        dispatch(changeTodolistTitleAC(id, title))
     }, [dispatch])
 
     const addTodolist = useCallback((title: string) => {
@@ -77,7 +64,7 @@ export const TodolistsList: React.FC<PropsType> = ({demo = false}) => {
         dispatch(thunk)
     }, [dispatch])
 
-    if (!isLoggedIn) {
+    if (!todolists) {
         return <Redirect to={'/startPage'}/>
     }
 
@@ -89,7 +76,7 @@ export const TodolistsList: React.FC<PropsType> = ({demo = false}) => {
         <div className={s.wrapp}>
             <Grid container spacing={3} justify={'space-between'} alignContent={'center'}>
                 {
-                    todolists.map(tl => {
+                    todolists!.map((tl: TodolistDomainType) => {
                         let allTodolistTasks = tasks[tl.id]
 
                         return <Grid item style={{margin: "0 auto"}} key={tl.id}>
